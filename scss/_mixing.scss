@@ -1,0 +1,45 @@
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin row {
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+/*
+  //   Mobile Phones: 320px (32em)
+  //   Tablets: 768px (48em)
+  //   Laptops and Desktops: 1024px (64em)
+  //   Large Screens: 1200px (75em) and above
+
+
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == bigscreen {
+    @media (max-width: 112.5em) {
+      @content;
+    }
+  }
+}

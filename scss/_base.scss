@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  // -- 10/16 => 0.625 = 62.5% = > 1rem = 10px
+
+  //   Mobile Phones: 320px (32em)
+  //   Tablets: 768px (48em)
+  //   Laptops and Desktops: 1024px (64em)
+  //   Large Screens: 1200px (75em) and above
+  //
+
+  @include respond(mobile) {
+    font-size: 37.75%;
+  }
+  @include respond(tablet) {
+    font-size: 50%;
+  }
+}
+
+body {
+  padding: 3rem;
+  font-family: "Lato", sans-serif;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  box-sizing: border-box;
+
+  @include respond(tablet) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
